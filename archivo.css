@@ -66,7 +66,7 @@ main {
 }
 
 section {
-    flex: 2;
+    flex: 1;
     padding: 25px;
     margin: 0px;
     background-color: white;
@@ -98,6 +98,8 @@ footer {
     padding: 20px 0;
     margin-top: auto;
     border-top: 3px solid #388E3C;
+    position: relative;
+    z-index: 1000;
 }
 
 .footer {
@@ -126,21 +128,111 @@ footer {
 }
 
 @media (max-width: 768px) {
+
+    body {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    nav ul {
+        gap: 40px;
+    }
+
+    main {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    section {
+        flex: 1 1 calc(33% - 40px);
+        padding: 20px;
+    }
+}
+
+@media (max-width: 1199px)  and (min-width: 769px) {
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main {
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    section {
+        flex: 1 1 calc(50% - 20px);
+        margin: 10px;
+    }
+
+    footer {
+        text-align: left;
+        padding: 15px;
+}
+
+}
+
+@media (max-width: 767px) and (min-width: 480px) {
     nav ul {
         flex-direction: column;
         gap: 10px;
     }
 
     main {
+        flex-direction: column;
+        align-items: center;
         padding: 10px;
     }
 
     section {
-        padding: 15px;
+        flex: 1 1 100%;
+        margin: 10px 0;
+        padding: 20px;
+    }
+
+    footer {
+        font-size: 0.9em;
     }
 
     .floating-button {
-        bottom: 15px;
-        right: 15px;
+        bottom: 10px;
+        right: 10px;
     }
+}
+
+@media (max-width: 479px) { header {
+    font-size: 1.2rem;
+    padding: 10px 0;
+}
+
+nav ul {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+}
+
+main {
+    padding: 5px;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+section {
+    flex: 1 1 100%;
+    padding: 15px;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+footer {
+    font-size: 0.8em;
+}
+
+.floating-button {
+    padding: 10px;
+    font-size: 0.8em;
+}
 }
